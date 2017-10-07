@@ -1,4 +1,4 @@
-// ======================================
+﻿// ======================================
 // Author: Ebenezer Monney
 // Email:  info@ebenmonney.com
 // Copyright (c) 2017 www.ebenmonney.com
@@ -22,7 +22,7 @@ import { ConfigurationService } from '../services/configuration.service';
 import { Permission } from '../models/permission.model';
 import { LoginComponent } from "../components/login/login.component";
 
-var alertify = require('../assets/scripts/alertify.js');
+var alertify: any = require('../assets/scripts/alertify.js');
 
 
 @Component({
@@ -64,13 +64,13 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
 
 
-    constructor(storageManager: LocalStoreManager, private router: Router, private toastyService: ToastyService, private toastyConfig: ToastyConfig,
+    constructor(storageManager: LocalStoreManager, private toastyService: ToastyService, private toastyConfig: ToastyConfig,
         private accountService: AccountService, private alertService: AlertService, private notificationService: NotificationService, private appTitleService: AppTitleService,
-        private authService: AuthService, private configurations: ConfigurationService, private translationService: AppTranslationService) {
+        private authService: AuthService, private translationService: AppTranslationService, public configurations: ConfigurationService, public router: Router) {
 
         storageManager.initialiseStorageSyncListener();
 
-        translationService.addLanguages(["en", "fr", "ar", "ko"]);
+        translationService.addLanguages(["en", "fr", "de", "ar", "ko", "pt"]);
         translationService.setDefaultLanguage('en');
 
 
